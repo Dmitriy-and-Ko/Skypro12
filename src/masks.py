@@ -3,7 +3,8 @@ from typing import Union
 
 def get_mask_card_number(card_number: Union[str]) -> Union[str]:
     """Функция возвращает замаскированный номер карты в формате XXXX XX** **** XXXX, где X - цифра"""
-
+    if len(card_number) != 16:
+        return 'Неправильно задан номер карты. Проверьте номер карты должен содержать 16 цифр'
     return f"{card_number[:4]} {card_number[4:6]}** **** {card_number[12:]}"
 
 
