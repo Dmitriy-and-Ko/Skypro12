@@ -1,5 +1,6 @@
 import pytest
-from src.widget import mask_account_card
+from src.widget import mask_account_card, get_date
+
 
 @pytest.mark.parametrize('value, expected', [
     ('Maestro 8820478370895540', 'Maestro 8820 47** **** 5540'),
@@ -15,3 +16,12 @@ from src.widget import mask_account_card
 ])
 def test_mask_account_card(value, expected):
     assert mask_account_card(value) == expected
+
+
+@pytest.mark.parametrize('value, expected', [
+    ('2024-03-11T02:26:18.671407', '11.03.2024'),
+    ('2017-05-03 17:46:44.558754', '03.05.2017'),
+    ('', 'Неправильно задан формат даты, убедитесь, что дата задана в формате %Y-%m-%dT%H:%M:%S.%f')
+])
+def test_get_date(value, expected):
+    assert get_date(value) == expected

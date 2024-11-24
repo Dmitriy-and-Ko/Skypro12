@@ -28,10 +28,12 @@ def mask_account_card(data_bank: str) -> str:
 def get_date(real_time: str) -> str:
     """Функция принимает время в формате '2024-03-11T02:26:18.671407' и возвращает строку с датой"""
     """в формате 'ДД.ММ.ГГГГ'"""
-    only_date = real_time[:10]
-    list_only_date = only_date.split("-")
-    sorted_string_only_date = ".".join(reversed(list_only_date))
-    return sorted_string_only_date
+    if len(real_time) > 10:
+        only_date = real_time[:10]
+        list_only_date = only_date.split("-")
+        sorted_string_only_date = ".".join(reversed(list_only_date))
+        return sorted_string_only_date
+    return 'Неправильно задан формат даты, убедитесь, что дата задана в формате %Y-%m-%dT%H:%M:%S.%f'
 
 
 print(get_date("2024-03-11T02:26:18.671407"))
