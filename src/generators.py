@@ -7,8 +7,12 @@ def filter_by_currency(transaction_list: Union[list, dict], currency: str)->Unio
 
 def transaction_descriptions(list_of_transaction: Union[list, dict])->None:
     """Генератор, принимающий список словарей с транзакциями и возвращает описание каждой операции по очереди"""
-    for transaction in list_of_transaction:
-        if transaction["state"] == "EXECUTED":
+    try:
+        list_of_transaction == list()
+    except  RuntimeError or StopIteration:
+        print('Отсутствуют данные для транзакции')
+    else:
+        for transaction in list_of_transaction:
             print(f"Id транзакции {transaction['id']}")
             yield transaction["description"]
 
