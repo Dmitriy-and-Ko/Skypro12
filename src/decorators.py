@@ -16,7 +16,7 @@ def log(filename = None):
                     with (open(PATH_TO_FILE, 'a', encoding="utf-8") as file):
                         return file.write(f"Выполнена функция {func.__name__}, результат {result}.\n")
                 else:
-                    return print(result)
+                    return result
             except Exception as error:
                 if filename is not None:
                     with (open(PATH_TO_FILE, 'a', encoding="utf-8") as file):
@@ -53,3 +53,7 @@ def sum_two_numbers(a, b):
     return a + b
 
 sum_two_numbers("24", 32)
+
+def sum_two_numbers(a, b):
+    return a + b
+

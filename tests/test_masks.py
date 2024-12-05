@@ -31,3 +31,4 @@ def test_mask_account_with_wrong_quantity_numbers(not_standart_number_for_get_ma
 
 def test_letter_in_account_number(if_account_number_contain_letters):
     assert get_mask_account("wr897rt748yr287ub905") == if_account_number_contain_letters
+
