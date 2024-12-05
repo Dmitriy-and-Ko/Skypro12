@@ -36,8 +36,9 @@ def test_transaction_descriptions():
     assert next(generator) == "Перевод со счета на счет"
 
 def test_empty_transaction_descriptions():
-    generator = transaction_descriptions(list())
-    assert next(generator) == 'Отсутствуют данные для транзакции'
+    with pytest.raises(StopIteration):
+        generator = transaction_descriptions(list())
+        assert next(generator) == 'Отсутствуют данные для транзакции'
 
 
 def test_filter_by_currency():
