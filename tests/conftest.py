@@ -29,6 +29,3 @@ def not_standart_number_for_get_masks_account():
 @pytest.fixture()
 def if_account_number_contain_letters():
     return "Номер счёта должен содержать только цифры"
-
-
-
