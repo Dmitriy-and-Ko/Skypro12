@@ -1,10 +1,7 @@
 import os
-from fileinput import filename
 from functools import wraps
 
-# ROOT_DIR = Path(__file__).parent
-# print(ROOT_DIR)
-# PATH_TO_FILE = Path(ROOT_DIR, "data", "log_scripts.txt")
+
 PATH_TO_FILE = os.path.join(os.path.dirname(__file__), "data", "log_scripts.txt")
 def log(filename = None):
     def user_decor(func):
@@ -22,7 +19,7 @@ def log(filename = None):
                     with (open(PATH_TO_FILE, 'a', encoding="utf-8") as file):
                         return file.write(f"Выполнена функция {func.__name__}, произошла ошибка {error}, атрибуты фукции {args}, {kwargs}.\n")
                 else:
-                    return print(f"Выполнена функция {func.__name__}, произошла ошибка {error}, атрибуты фукции {args}, {kwargs}.\n")
+                    return 'Функция выполнена с ошибкой'
         return inner
     return user_decor
 
