@@ -19,6 +19,6 @@ def test_log_with_different_type_of_arguments(capsys):
     @log()
     def sum_two_numbers(a, b):
         return a + b
-
+    sum_two_numbers('24', 22)
     captured = capsys.readouterr()
-    assert sum_two_numbers("24", 12) == "Функция выполнена с ошибкой"
+    assert captured.out == "Функция выполнена с ошибкой\n"
