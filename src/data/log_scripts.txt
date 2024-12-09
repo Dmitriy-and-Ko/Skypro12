@@ -89,3 +89,7 @@
 Выполнена функция sum_two_numbers, произошла ошибка can only concatenate str (not "int") to str, атрибуты фукции ('24', 32), {}.
 Выполнена функция sum_two_numbers, результат 1521.
 Выполнена функция sum_two_numbers, произошла ошибка can only concatenate str (not "int") to str, атрибуты фукции ('24', 32), {}.
+Выполнена функция sum_two_numbers, результат 1521.
+Выполнена функция sum_two_numbers, произошла ошибка can only concatenate str (not "int") to str, атрибуты фукции ('24', 32), {}.
+Выполнена функция sum_two_numbers, результат 1521.
+Выполнена функция sum_two_numbers, произошла ошибка can only concatenate str (not "int") to str, атрибуты фукции ('24', 32), {}.
