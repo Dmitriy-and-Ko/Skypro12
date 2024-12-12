@@ -2,10 +2,16 @@ import os
 import json
 from json import JSONDecodeError, dumps
 import requests
+from dotenv import load_dotenv
 
 
 def get_transaction_amount(transaction: dict[str, float]) -> float:
     """Функция принимает на вход транзакцию и возвращает сумму транзакции (amount) в рублях"""
+
+    path1 = os.getcwd()
+    path2 = '.env'
+    joined_path = os.path.join(path1[:-3], path2)
+
     if transaction["operationAmount"]["currency"]["code"] == "RUB":
         return transaction["operationAmount"]["amount"]
     else:
@@ -15,8 +21,11 @@ def get_transaction_amount(transaction: dict[str, float]) -> float:
         url = f"https://api.apilayer.com/currency_data/convert?to={to_convert}&from={from_convert}&amount={amount}"
 
         payload = {}
+        load_dotenv(joined_path)
+        API_KEY = os.getenv('API-KEY')
+
         headers = {
-            "apikey": "GOaGE3RxnJdtk0E343HyL9luojqmns7H"
+            "apikey": API_KEY
         }
 
         response = requests.request("GET", url, headers=headers, data=payload)
@@ -46,6 +55,3 @@ if __name__ == '__main__':
     "from": "MasterCard 7158300734726758",
     "to": "Счет 35383033474447895560"
   }))
-
-
-'GOaGE3RxnJdtk0E343HyL9luojqmns7H'
