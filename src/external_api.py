@@ -5,7 +5,7 @@ import requests
 from dotenv import load_dotenv
 
 
-def get_transaction_amount(transaction: dict[str, float]) -> float:
+def get_transaction_amount(transaction: dict[str, float]) -> str:
     """Функция принимает на вход транзакцию и возвращает сумму транзакции (amount) в рублях"""
 
     path1 = os.getcwd()
@@ -18,7 +18,7 @@ def get_transaction_amount(transaction: dict[str, float]) -> float:
         to_convert = "RUB"
         from_convert = transaction["operationAmount"]["currency"]["code"]
         amount = transaction["operationAmount"]["amount"]
-        url = f"https://api.apilayer.com/currency_data/convert?to={to_convert}&from={from_convert}&amount={amount}"
+        url = f"https://api.apilayer.com/exchangerates_data/convert?to={to_convert}&from={from_convert}&amount={amount}"
 
         payload = {}
         load_dotenv(joined_path)
@@ -30,13 +30,13 @@ def get_transaction_amount(transaction: dict[str, float]) -> float:
 
         response = requests.request("GET", url, headers=headers, data=payload)
 
-        status_code = response.status_code
+        # status_code = response.status_code
         result = response.text
-        func_result = float(result[-16:-3])
-        if status_code == 200:
-            return func_result
-        else:
-            return f"Транзакция прошла с ошибкой {status_code}"
+        func_result = result[-16:-3]
+        # if status_code == 200:
+        return func_result
+        # else:
+        #     return f"Транзакция прошла с ошибкой {status_code}"
 
 
 if __name__ == '__main__':
