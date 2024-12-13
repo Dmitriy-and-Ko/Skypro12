@@ -5,7 +5,7 @@ import requests
 from dotenv import load_dotenv
 
 
-def get_transaction_amount(transaction: dict[str, float]) -> str:
+def get_transaction_amount(transaction: dict[str, float]) -> float:
     """Функция принимает на вход транзакцию и возвращает сумму транзакции (amount) в рублях"""
 
     path1 = os.getcwd()
@@ -32,9 +32,13 @@ def get_transaction_amount(transaction: dict[str, float]) -> str:
 
         # status_code = response.status_code
         result = response.text
-        func_result = result[-16:-3]
+
+
+        parsed_result = json.loads(result)
+        returned_result = parsed_result['result']
         # if status_code == 200:
-        return func_result
+
+        return returned_result
         # else:
         #     return f"Транзакция прошла с ошибкой {status_code}"
 
