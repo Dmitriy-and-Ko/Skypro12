@@ -3,6 +3,7 @@ from functools import wraps
 
 PATH_TO_FILE = os.path.join(os.path.dirname(__file__), "data", "log_scripts.txt")
 
+
 def log(filename=None):
     def user_decor(func):
         @wraps(func)
@@ -22,7 +23,9 @@ def log(filename=None):
                         )
                 else:
                     return print("Функция выполнена с ошибкой")
+
         return inner
+
     return user_decor
 
 
