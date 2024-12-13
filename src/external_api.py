@@ -30,17 +30,14 @@ def get_transaction_amount(transaction: dict[str, float]) -> float:
 
         response = requests.request("GET", url, headers=headers, data=payload)
 
-        # status_code = response.status_code
         result = response.text
 
 
         parsed_result = json.loads(result)
         returned_result = parsed_result['result']
-        # if status_code == 200:
 
         return returned_result
-        # else:
-        #     return f"Транзакция прошла с ошибкой {status_code}"
+
 
 
 if __name__ == '__main__':
