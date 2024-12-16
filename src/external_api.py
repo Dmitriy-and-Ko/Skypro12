@@ -33,6 +33,7 @@ def get_transaction_amount(transaction: dict[str, float]) -> float:
         result = response.text
 
         parsed_result = json.loads(result)
+        print(parsed_result)
         returned_result = parsed_result["result"]
 
         return returned_result
