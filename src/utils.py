@@ -7,13 +7,13 @@ from src.decorators import PATH_TO_FILE
 from src.external_api import get_transaction_amount
 
 PATH_TO_DIR = Path(__file__).parent.parent
-PATH_TO_FILE_JSON = Path(PATH_TO_DIR, 'data', 'operations.json')
-PATH_TO_FILE_LOG = Path(PATH_TO_DIR, 'logs', 'utils.log')
+PATH_TO_FILE_JSON = Path(PATH_TO_DIR, "data", "operations.json")
+PATH_TO_FILE_LOG = Path(PATH_TO_DIR, "logs", "utils.log")
 
-logger = logging.getLogger('utils')
+logger = logging.getLogger("utils")
 logger.setLevel(logging.INFO)
-file_handler =  logging.FileHandler(PATH_TO_FILE_LOG, encoding='UTF-8')
-file_formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s: %(message)s')
+file_handler = logging.FileHandler(PATH_TO_FILE_LOG, encoding="UTF-8")
+file_formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s: %(message)s")
 file_handler.setFormatter(file_formatter)
 logger.addHandler(file_handler)
 
@@ -33,6 +33,7 @@ def get_list_transactions(file_path: str) -> list:
     logger.info(f"Путь к файлу {PATH_TO_FILE_JSON} указан не верно")
     return []
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     print(get_list_transactions(PATH_TO_FILE))
     print(get_list_transactions(PATH_TO_FILE_JSON))
