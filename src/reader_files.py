@@ -38,8 +38,8 @@ def excel_reader(excel_path: str) -> list:
 
 
 if __name__ == "__main__":
-    # print(csv_reader(PATH_TO_FILE_EXCEL))
-    # print(excel_reader(PATH_TO_FILE_EXCEL))
-    # print(PATH_TO_FILE_EXCEL)
+    print(csv_reader(PATH_TO_FILE_EXCEL))
+    print(excel_reader(PATH_TO_FILE_CSV))
+
     print(excel_reader(PATH_TO_FILE_EXCEL))
     print(excel_reader(PATH_TO_FILE_CSV))
